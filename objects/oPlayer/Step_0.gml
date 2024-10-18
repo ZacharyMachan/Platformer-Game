@@ -10,4 +10,26 @@ var _move = key_right - key_left;
 
 hsp = _move * walksp;
 
+vsp = vsp + grv;
+
+//horizontal collision
+if (place_meeting(x+hsp,y,oInvisibleWall))		
+{
+	while (!place_meeting(x+sign(hsp),y,oInvisibleWall))
+	{
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
 x = x + hsp;
+
+//vertical collision
+if (place_meeting(x+vsp,y,oInvisibleWall))		
+{
+	while (!place_meeting(x+sign(vsp),y,oInvisibleWall))
+	{
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+y = y	 + vsp;
