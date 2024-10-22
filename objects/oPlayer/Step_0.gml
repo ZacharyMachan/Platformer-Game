@@ -1,15 +1,16 @@
 // core player logic / player inputs
 
 
-key_left = keyboard_check (vk_left);
-key_right = keyboard_check (vk_right);
-key_jump = keyboard_check_pressed (vk_space);
+key_left = keyboard_check(ord("A"));
+key_right = keyboard_check(ord("D"));
+key_jump = keyboard_check_pressed(ord("W"));
 
-//calcukating movement
+//calculating movement
 var _move = key_right - key_left; 
 
 hsp = _move * walksp;
 
+//gravity
 vsp = vsp + grv;
 
 if (place_meeting(x,y+1,oInvisibleWall)) && (key_jump)
