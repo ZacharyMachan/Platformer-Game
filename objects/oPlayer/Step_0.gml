@@ -13,7 +13,7 @@ hsp = _move * walksp;
 //gravity
 vsp = vsp + grv;
 
-if (place_meeting(x,y+1,oInvisibleWall)) && (key_jump)
+if (place_meeting(x,y+1,oInvisibleWall) && (key_jump))
 {
 	vsp = -jumpsp
 }
@@ -29,9 +29,9 @@ if (place_meeting(x+hsp,y,oInvisibleWall))
 x = x + hsp;
 
 //vertical collision
-if (place_meeting(x+vsp,y,oInvisibleWall))		
+if (place_meeting(x,y+vsp,oInvisibleWall))		
 {
-	while (!place_meeting(x+sign(vsp),y,oInvisibleWall))
+	while (!place_meeting(x,y+sign(vsp),oInvisibleWall))
 	{
 		y = y + sign(vsp);
 	}
